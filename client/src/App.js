@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 
 function App() {
-  const baseUrl = "https://product-list-server.vercel.app";
+  const baseUrl = "http://localhost:3002";
   const [products, setProducts] = useState([]);
   const [successTrigger, setSuccessTrigger] = useState(false);
   const [formData, setFormData] = useState({
@@ -59,7 +59,7 @@ function App() {
     formDatas.append('file', selectedFile);
 
     try {
-      const response = await axios.post(`${baseUrl}/products/add`, formData, { withCredentials: true });
+      const response = await axios.post(`${baseUrl}/products/add`, formDatas, { withCredentials: true });
       if (response.data.success) {
         setSuccessTrigger(prevState => !prevState);
 
