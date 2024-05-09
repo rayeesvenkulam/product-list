@@ -6,7 +6,7 @@ const con = require("../config/dbConfig");
 
 
 const storage = multer.diskStorage({
-  destination: "./../client/public/uploads",
+  destination: "https://product-list-client.vercel.app/public/uploads",
   filename: (req, file, callBack) => {
     callBack(
       null,
