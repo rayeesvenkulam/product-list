@@ -17,7 +17,7 @@ router.get('/getProducts', function (req, res, next) {
 
 //add product
 router.post('/add', function (req, res, next) {
- 
+
   const datas = req.body;
   const product = {
     name: datas.name,

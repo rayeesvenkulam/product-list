@@ -59,7 +59,7 @@ function App() {
     formDatas.append('file', selectedFile);
 
     try {
-      const response = await axios.post(`${baseUrl}/products/add`, formDatas, { withCredentials: true });
+      const response = await axios.post(`${baseUrl}/products/add`, formData, { withCredentials: true });
       if (response.data.success) {
         setSuccessTrigger(prevState => !prevState);
 

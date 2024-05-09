@@ -10,7 +10,7 @@ var productRouter = require('./routes/products');
 var app = express();
 app.use(
   cors({
-    origin: 'https://product-list-client.vercel.app', // client application URL
+    origin: 'http://localhost:3000', // client application URL
     credentials: true,
   })
 );
