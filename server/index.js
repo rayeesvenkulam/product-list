@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 const cors = require('cors');
+require("dotenv").config(); 
 
 var productRouter = require('./routes/products');
 

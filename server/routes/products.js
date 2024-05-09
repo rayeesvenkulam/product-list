@@ -3,7 +3,7 @@ var router = express.Router();
 const multer = require('multer');
 const path = require("path");
 const con = require("../config/dbConfig");
-
+require("dotenv").config(); 
 
 const storage = multer.diskStorage({
   destination: "./public/uploads",
@@ -40,7 +40,7 @@ router.post('/add', upload, function (req, res, next) {
   if (!file) {
     savedPath = null;
   } else {
-    savedPath = "/uploads/" + file.filename;
+    savedPath = process.env.SERVER_PATH +"/public/uploads/" + file.filename;
   }
 
   const datas = req.body;
