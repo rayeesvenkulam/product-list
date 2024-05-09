@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 
 function App() {
-  const baseUrl = "http://localhost:3002";
+  const baseUrl = "https://product-list-server.vercel.app";
   const [products, setProducts] = useState([]);
   const [successTrigger, setSuccessTrigger] = useState(false);
   const [formData, setFormData] = useState({
