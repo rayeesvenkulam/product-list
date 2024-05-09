@@ -20,7 +20,7 @@
 - created products are listed in this table.
 - we can serch this products using keywords like ('Repsol XTE' , 'Repsol XTE SN-50').
 
-- also create authetication for this web app,and add additional features.
+- also trying to create authetication for this web app in next step, and add additional features.
 
 
 
