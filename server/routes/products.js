@@ -1,24 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const multer = require('multer');
-const path = require("path");
 const con = require("../config/dbConfig");
-require("dotenv").config(); 
-
-const storage = multer.diskStorage({
-  destination: "./public/uploads",
-  filename: (req, file, callBack) => {
-    callBack(
-      null,
-      file.fieldname + "_" + Date.now() + path.extname(file.originalname)
-    );
-  },
-});
-
-let upload = multer({
-  storage: storage,
-}).single("file");
-
 
 //get all products
 router.get('/getProducts', function (req, res, next) {
@@ -34,21 +16,13 @@ router.get('/getProducts', function (req, res, next) {
 });
 
 //add product
-router.post('/add', upload, function (req, res, next) {
-  let savedPath;
-  const file = req.file;
-  if (!file) {
-    savedPath = null;
-  } else {
-    savedPath = process.env.SERVER_PATH +"/public/uploads/" + file.filename;
-  }
-
+router.post('/add', function (req, res, next) {
+ 
   const datas = req.body;
   const product = {
     name: datas.name,
     mrp: datas.mrp,
     srp: datas.srp,
-    image: savedPath,
   };
 
   var query = "INSERT INTO products SET ?";
